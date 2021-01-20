@@ -1,0 +1,4 @@
+C:\Users\Caroline\Documents\GitHub\Rock-Paper-Scissors\obj\Debug\netcoreapp3.1\Rock-Paper-Scissors.csprojAssemblyReference.cache
+C:\Users\Caroline\Documents\GitHub\Rock-Paper-Scissors\obj\Debug\netcoreapp3.1\Rock-Paper-Scissors.AssemblyInfoInputs.cache
+C:\Users\Caroline\Documents\GitHub\Rock-Paper-Scissors\obj\Debug\netcoreapp3.1\Rock-Paper-Scissors.AssemblyInfo.cs
+C:\Users\Caroline\Documents\GitHub\Rock-Paper-Scissors\obj\Debug\netcoreapp3.1\Rock-Paper-Scissors.csproj.CoreCompileInputs.cache
