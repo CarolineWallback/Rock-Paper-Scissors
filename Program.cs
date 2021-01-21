@@ -2,10 +2,12 @@
 
 namespace Rock_Paper_Scissors
 {
+   
     class Program
     {
         static void Main(string[] args)
         {
+        
             Console.WriteLine("Welcome to this game of Rock, Paper, Scissors.");
             Console.WriteLine("You will play against the computer. I think you know the rules, but if not, here they are...");
             Console.WriteLine("You get to choose if you want to play out the rock, the paper or the scissor.");
@@ -20,126 +22,138 @@ namespace Rock_Paper_Scissors
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-
-            else 
+            else if (answer == "y")
             {
-                Program.RockPaperScissor();
-            }
+                Console.WriteLine("Ok, let´s begin");
+            }    
 
+            bool playAgain = true;
+            int playerscore = 0;
+            int computerscore = 0;
 
-
-            Console.ReadKey();
-        }
-
-        static void RockPaperScissor() 
-        {
-            Console.WriteLine("Choose rock, paper or scissor");
-            string User = Console.ReadLine();
-
-            Random RPS = new Random();
-            int Computer = RPS.Next(3);
-
-            if (Computer == 0)
+            while (playAgain)
             {
-                if (User == "scissor")
+
+                Console.WriteLine("Choose rock, paper or scissor");
+                string User = Console.ReadLine();
+
+                Random RPS = new Random();
+                int ComputersChoice = RPS.Next(3);
+
+                if (ComputersChoice == 0)
                 {
-                    Console.WriteLine("The Computer chose rock.");
-                    Console.WriteLine("You chose scissor,so the computer won.");
+                    if (User == "scissor")
+                    {
+                     Console.WriteLine("The Computer chose rock.");
+                     Console.WriteLine("You chose scissor,so the computer won.");
+                     computerscore++;
+                    
+                    }
+
+                    else if (User == "rock")
+                    {
+                      Console.WriteLine("The Computer chose rock.");
+                      Console.WriteLine("And you also chose rock, it is a tie.");
+                    }
+
+                    else if (User == "paper")
+                    {
+                      Console.WriteLine("The Computer chose rock.");
+                     Console.WriteLine("And you chose paper, therefore you win.");
+                        playerscore++; 
+                    }
+
                 }
 
-                else if (User == "rock")
+                if (ComputersChoice == 1)
                 {
-                    Console.WriteLine("The Computer chose rock.");
-                    Console.WriteLine("And you also chose rock, it is a tie.");
+                 if (User == "scissor")
+                    {
+                        Console.WriteLine("The Computer chose scissor.");
+                        Console.WriteLine("And you also chose scissor, it is a tie.");
+                    }
+
+                    else if (User == "rock")
+                    {
+                        Console.WriteLine("The Computer chose scissor.");
+                        Console.WriteLine("And you chose rock, therefore you win.");
+                        playerscore++; 
+                        
+                    }
+
+                    else if (User == "paper")
+                    {
+                        Console.WriteLine("The Computer chose scissor.");
+                        Console.WriteLine("And you chose paper, so the computer won.");
+                        computerscore++;
+                        
+                    }
+
+                }
+
+                if (ComputersChoice == 2)
+                {
+                    if (User == "scissor")
+                    {
+                        Console.WriteLine("The Computer chose paper.");
+                        Console.WriteLine("And you chose scissor, therefore you win.");
+                        playerscore++; 
+                        
+                    }
+
+                    else if (User == "rock")
+                    {
+                        Console.WriteLine("The Computer chose paper.");
+                        Console.WriteLine("And you chose rock, so the computer won.");
+                        computerscore++;
+                        
+                    }
+
+                    else if (User == "paper")
+                    {
+                        Console.WriteLine("The Computer chose paper.");
+                        Console.WriteLine("And you also chose paper, it is a tie.");
+                    }
+
+                   
+                }
                 
-                }
-
-                else if (User == "paper")
-                {
-                    Console.WriteLine("The Computer chose rock.");
-                    Console.WriteLine("And you chose paper, therefore you win.");
-                }
-
-                else 
-                {
-                    Console.WriteLine("You didn´t type in any of the choices correctly.");
-                    Program.RockPaperScissor();
-                }
-
-            }
-
-             if (Computer == 1)
-            {
-                if (User == "scissor")
-                {
-                    Console.WriteLine("The Computer chose scissor.");
-                    Console.WriteLine("And you also chose scissor, it is a tie.");
-                }
-
-                else if (User == "rock")
-                {
-                    Console.WriteLine("The Computer chose scissor.");
-                    Console.WriteLine("And you chose rock, therefore you win.");
-                }
-
-                else if (User == "paper")
-                {
-                    Console.WriteLine("The Computer chose scissor.");
-                    Console.WriteLine("And you chose paper, so the computer won.");
-                }
-
-                else 
-                {
-                    Console.WriteLine("You didn´t type in any of the choices correctly.");
-                    Program.RockPaperScissor();
-                }
-
-            }
-
-            if (Computer == 2)
-            {
-                if (User == "scissor")
-                {
-                    Console.WriteLine("The Computer chose paper.");
-                    Console.WriteLine("And you chose scissor, therefore you win.");
-                }
-
-                else if (User == "rock")
-                {
-                    Console.WriteLine("The Computer chose paper.");
-                    Console.WriteLine("And you chose rock, so the computer won.");
-                }
-
-                else if (User == "paper")
-                {
-                    Console.WriteLine("The Computer chose paper.");
-                    Console.WriteLine("And you also chose paper, it is a tie.");
-                }
-
-                else 
-                {
-                    Console.WriteLine("You didn´t type in any of the choices correctly.");
-                    Program.RockPaperScissor();
-                }
-            }
+                
+                Console.WriteLine("Do you want to play again, y/n?");
+                string playagainAnswer = Console.ReadLine();
             
-            Console.WriteLine("Do you want to play again, y/n?");
-            string playagain = Console.ReadLine();
-          
-            if (playagain == "y")
-            {
-                 Program.RockPaperScissor();
-            }
+                if (playagainAnswer == "y")
+                {
+                    playAgain=true;
+                }
 
-            else 
-            {
-                Console.WriteLine("Press any key to quit");
-                Console.ReadKey();
-                Environment.Exit(0);
-            }
+                else 
+                {
+                    Console.WriteLine("The scores are " +playerscore+ " points for you and " +computerscore+" for the computer."); 
+                    if (playerscore > computerscore)
+                    {
+                        Console.WriteLine("Congratulations. You won!");
+                    }
 
+                    else if (playerscore < computerscore)
+                    {
+                        Console.WriteLine("The computer won, better luck next time");
+                    }
 
+                    else 
+                    {
+                        Console.WriteLine("The game ended with a tie. Good job though!");
+                    }
+                    
+                    Console.WriteLine("Press any key to quit");
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
+            }    
+            
+
+        
         }
-    }
+    }    
 }
 
