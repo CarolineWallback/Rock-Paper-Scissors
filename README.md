@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
- Play rock paper scissors againt the computer
+ Play rock paper scissors against the computer
